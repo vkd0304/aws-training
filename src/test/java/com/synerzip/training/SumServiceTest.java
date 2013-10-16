@@ -20,7 +20,16 @@ public class SumServiceTest extends TestCase
         super.tearDown();
     }
 
-    public void testSum()
+    public void testSum1()
+    {
+        double a = 10d;
+        double b = 10d;
+        double sum = SumService.sum(a, b);
+        
+        assertEquals(20d, sum);
+    }
+    
+    public void testSum2()
     {
         double a = 10d;
         double b = 20d;
