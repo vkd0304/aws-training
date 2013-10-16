@@ -12,7 +12,7 @@ public class SumService
     
     public static double sum(double a, double b) 
     {
-        return 1.2*a + 0.8*b;
+        return a + b;
     }
 
 }
