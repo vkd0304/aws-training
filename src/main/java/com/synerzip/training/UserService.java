@@ -3,6 +3,7 @@
  */
 package com.synerzip.training;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,7 +20,7 @@ import java.util.Properties;
 public class UserService
 {
 
-    public static List<User> getUsers()
+    public List<User> getUsers()
     {
         List<User> users = new ArrayList<User>();
 
@@ -28,7 +29,7 @@ public class UserService
         String host = null, username = null, password = null, dbname = null;
         try
         {
-            properties.load(UserService.class.getResourceAsStream("db.properties"));
+            properties.load(this.getClass().getResourceAsStream("/db.properties"));
             host = properties.getProperty("host");
             username = properties.getProperty("username");
             password = properties.getProperty("password");
@@ -70,6 +71,7 @@ public class UserService
 
         } catch (Exception e)
         {
+            e.printStackTrace(System.out);
             System.out.println("Couldnt get connection");
             return users;
         }
